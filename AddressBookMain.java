@@ -81,7 +81,7 @@ public class AddressBookMain {
 		}
 		filewriter.close();
 	}
-	void readFile(){
+	void readFile() throws Exception{
 		File file = new File("addressbook.txt");
 		Scanner sc = new Scanner(file);
 		while(sc.hasNextLine()){
