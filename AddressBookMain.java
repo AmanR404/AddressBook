@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import com.opencsv.*;
 
@@ -74,17 +75,16 @@ public class AddressBookMain {
 			System.out.println(contact[i]);
 		}	
 	}
-	void storeinFile(){
-		FileWriter filewriter = new FileWriter("Contacts.csv");
-		CSVWriter writer = new CSVWriter(filewriter);
+	void storeinFile() throws Exception{
+		PrintWriter pwriter = new PrintWriter("Contacts.json");
 		for(int i = 0; i < contact.length; i++){
-			writer.writeNext(contact[i]);
+			pwriter.write(contact[i]);
 		}
-		writer.close();
+		pwriter.flush();
+		pwriter.close();
 	}
 	void readFile() throws Exception{
-		Scanner sc = new Scanner(new File("Contacts.csv"));
-		sc.useDelimiter(",");
+		Scanner sc = new Scanner(new File("Contacts.json"));
 		while(sc.hasNextLine()){
 			System.out.println(sc.next());
 		}
