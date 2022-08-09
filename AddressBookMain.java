@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class AddressBookMain {
@@ -70,6 +72,22 @@ public class AddressBookMain {
 		{
 			System.out.println(contact[i]);
 		}	
+	}
+	void storeinFile(){
+		FileWriter filewriter = new FileWriter("addressbook.txt");
+		for(int i = 0; i < contact.length; i++){
+			filewriter.write(contact[i]);
+			filewriter.write("\n");
+		}
+		filewriter.close();
+	}
+	void readFile(){
+		File file = new File("addressbook.txt");
+		Scanner sc = new Scanner(file);
+		while(sc.hasNextLine()){
+			System.out.println(sc.next());
+		}
+		sc.close();
 	}
 	
     public static void main(String[] args) {
