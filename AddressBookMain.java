@@ -20,6 +20,10 @@ public class AddressBookMain {
 			
 			System.out.println("Enter First name: ");
 			firstName = scanner.next();
+			if(firstName.equals(contact[i].getfirstName)){
+				throw new IllegalArgumentException("Contact already exists");
+				break;
+			}
 			
 			System.out.println("Enter Last name: ");
 			lastName = scanner.next();
